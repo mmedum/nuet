@@ -1,0 +1,49 @@
+name: Bug report
+description: Something in nuet doesn't work as it should
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: A screenshot of the rows helps.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: How to make it happen
+      placeholder: |
+        1. Send a prompt and let Claude answer
+        2. ...
+  - type: input
+    id: nuet
+    attributes:
+      label: nuet version
+      description: '`claude plugin list` shows it.'
+    validations:
+      required: true
+  - type: input
+    id: claude
+    attributes:
+      label: Claude Code version
+      description: '`claude --version` shows it.'
+    validations:
+      required: true
+  - type: input
+    id: terminal
+    attributes:
+      label: Terminal and operating system
+      placeholder: Ghostty on Linux
+  - type: textarea
+    id: log
+    attributes:
+      label: Debug log
+      description: With `claude --debug`, the lines that start with `nuet:`.
+      render: text

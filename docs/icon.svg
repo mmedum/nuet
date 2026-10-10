@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024" role="img" aria-label="nuet">
+  <title>nuet: everything stays as it is, and each message keeps its now</title>
+  <rect width="1024" height="1024" fill="#1c1c1c"/>
+  <rect x="146" y="579" width="440" height="110" rx="40" fill="#6f6f6f"/>
+  <path d="M534 114 C538.6 192.6 605.8 266 604 376 A92 92 0 0 1 420 376 C420 284.3 465 224 534 114 Z" transform="translate(274 221)" fill="#f2542d"/>
+  <path d="M534 114 C538.6 192.6 605.8 266 604 376 A92 92 0 0 1 420 376 C420 284.3 465 224 534 114 Z" transform="translate(530 427) scale(0.5)" fill="#ffb627"/>
+</svg>

@@ -1,0 +1,32 @@
+{
+  "name": "nuet",
+  "version": "0.1.0",
+  "description": "A dim time above each prompt and each reply in the Claude Code transcript, written the way your own clock setting writes it",
+  "author": {
+    "name": "Mark Medum Bundgaard",
+    "url": "https://github.com/mmedum"
+  },
+  "homepage": "https://github.com/mmedum/nuet",
+  "repository": "https://github.com/mmedum/nuet",
+  "license": "Apache-2.0",
+  "icon": "./.claude-plugin/icon.png",
+  "documentationUrl": "https://github.com/mmedum/nuet#readme",
+  "supportUrl": "https://github.com/mmedum/nuet/issues",
+  "privacyPolicyUrl": "https://github.com/mmedum/nuet#privacy",
+  "userConfig": {
+    "seconds": {
+      "type": "boolean",
+      "title": "Seconds",
+      "description": "Show seconds in each time; a strftime time format decides for itself",
+      "default": false
+    },
+    "timeColor": {
+      "type": "string",
+      "title": "Time color",
+      "description": "A theme role such as inactive (the default, Claude Code's color for hints and timestamps), claude or success; or a color: #7aa2f7, rgb(122,162,247), ansi256(110) or ansi:cyan",
+      "default": "inactive"
+    }
+  },
+  "keywords": ["claude-code", "mod", "transcript", "timestamps", "time", "tui"],
+  "types": "./types/index.d.ts"
+}

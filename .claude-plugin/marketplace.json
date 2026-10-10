@@ -1,0 +1,17 @@
+{
+  "name": "nuet",
+  "description": "nuet, the time of each prompt and reply in the Claude Code transcript",
+  "owner": {
+    "name": "Mark Medum Bundgaard",
+    "url": "https://github.com/mmedum"
+  },
+  "plugins": [
+    {
+      "name": "nuet",
+      "source": "./",
+      "description": "A dim time above each prompt and each reply in the transcript, written the way your own clock setting writes it",
+      "category": "productivity",
+      "tags": ["transcript", "timestamps", "tui"]
+    }
+  ]
+}
