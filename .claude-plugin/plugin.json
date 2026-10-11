@@ -1,6 +1,6 @@
 {
   "name": "nuet",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A dim time above each prompt and each reply in the Claude Code transcript, written the way your own clock setting writes it",
   "author": {
     "name": "Mark Medum Bundgaard",

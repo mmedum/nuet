@@ -4,6 +4,12 @@ Notable changes to nuet. The format follows [Keep a Changelog](https://keepachan
 
 ## [Unreleased]
 
+## [0.1.2] - 2026-10-12
+
+### Changed
+
+- A new icon: 21:30, the minute of nuet's first commit, on a digital clock, in place of the flame after a line.
+
 ## [0.1.1] - 2026-10-11
 
 ### Fixed
@@ -18,6 +24,7 @@ Notable changes to nuet. The format follows [Keep a Changelog](https://keepachan
 - Times written the way Claude Code's own clock writes them, by its `timeFormat` and `timeZone` settings and in the locale: auto, 12-hour and 24-hour in the locale's own form, and every strftime field Claude Code knows, glibc's `%-` included, a pattern cleaned and cut as Claude Code cleans and cuts one; a Seconds option, and a Time color option that takes a theme role or a color, with a color name, an `ansi:` name and `ansi256()` from 0 to 15 drawn in the terminal's own palette.
 - `/nuet` says whether nuet's times are on. `/nuet off` hides them, those already drawn too, and `/nuet on` shows them again; the switch lasts for the session.
 
-[Unreleased]: https://github.com/mmedum/nuet/compare/v0.1.1...HEAD
+[Unreleased]: https://github.com/mmedum/nuet/compare/v0.1.2...HEAD
+[0.1.2]: https://github.com/mmedum/nuet/releases/tag/v0.1.2
 [0.1.1]: https://github.com/mmedum/nuet/releases/tag/v0.1.1
 [0.1.0]: https://github.com/mmedum/nuet/releases/tag/v0.1.0

@@ -4,7 +4,7 @@ A dim time above each prompt and each reply in the Claude Code transcript, writt
 
 [![CI](https://github.com/mmedum/nuet/actions/workflows/ci.yml/badge.svg)](https://github.com/mmedum/nuet/actions/workflows/ci.yml) [![Release](https://img.shields.io/github/v/release/mmedum/nuet?label=release)](https://github.com/mmedum/nuet/releases/latest)
 
-_nuet_ is Danish for "the now", as in _leve i nuet_, to live in the moment. Each time nuet writes is the now of one message: when you sent it, or when Claude's answer came. Its icon says the same: everything stays as it is, and each message keeps its now.
+_nuet_ is Danish for "the now", as in _leve i nuet_, to live in the moment. Each time nuet writes is the now of one message: when you sent it, or when Claude's answer came. Its icon keeps nuet's own now: 21:30, the minute of its first commit.
 
 Claude Code says when a turn finished, `done 9:10 PM`, but not when you asked or when Claude answered. In a long session that's what you need to line the conversation up with your logs, or to see how long Claude worked on something. nuet puts the time on the blank line Claude Code already leaves above each message, at its right end:
 
