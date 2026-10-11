@@ -26,6 +26,17 @@ describe('times', () => {
     expect(await lines(await promptRow($, 'p2', 'same minute as the reply'))).toEqual(['❯ same minute as the reply', '9:11 PM'])
   })
 
+  test('times the first part of a message drawn in parts, under its id with the last twelve digits zeroed, and no later part', async ($, on) => {
+    const { clock } = await started($, on)
+    await prompt($, 'c73a7081-7087-44a0-a47c-794662544c91', 'trace one')
+    await clock.advance(MINUTE)
+    await reply($, '4eb1f0d5-2c0b-4202-a09b-5d1c8e3f2a77', 'a minute on')
+
+    expect(await lines(await promptRow($, 'c73a7081-7087-44a0-a47c-000000000000', 'trace one'))).toEqual(['❯ trace one', 'Sat, Oct 10 · 9:10 PM'])
+    expect(await lines(await replyRow($, '4eb1f0d5-2c0b-4202-a09b-000000000000', 'a minute on'))).toEqual(['● a minute on', '9:11 PM'])
+    expect(await lines(await replyRow($, '4eb1f0d5-2c0b-4202-a09b-000000000001', 'and more'))).toEqual(['● and more'])
+  })
+
   test("times no reply that only calls a tool, no tool's result and none of a subagent", async ($, on) => {
     const { clock } = await started($, on)
     await prompt($, 'p1', 'go')

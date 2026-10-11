@@ -97,13 +97,25 @@ function isNew(before: number | null, at: number, now: Clock): boolean {
   return before === null || (at > before && (!isSameDay(before, at, now) || timeOf(before, now) !== timeOf(at, now)))
 }
 
+// The part of a row's id that a stamp is kept under. Claude Code draws a
+// message under its id, or, seen with typed prompts and with replies that
+// think first, one row per part under the id with its last twelve digits
+// replaced by the part's number (`…000000000000` the first); a queued prompt
+// kept its full id. The first twenty digits are the same either way, and
+// unique in practice.
+const rowKey = (id: string) => id.slice(0, 23)
+
+// Whether a row is a later part of a message drawn in parts, which shows no
+// time: the first part, or a row under the full id, shows the message's.
+const isLaterPart = (id: string) => /^-0{9}[0-9a-f]{3}$/.test(id.slice(23)) && !id.endsWith('-000000000000')
+
 // A message row as Claude Code drew it and, over the blank line it leaves
 // above the message, the row's time at its end; the time without its date
 // when there is no room for both, and the row alone when it shows no time
 // or has no room even for the time.
 async function withTime($: EngineInterface, e: RenderInput<'UserMessage' | 'AssistantMessage'>, drawn: RenderElement): Promise<RenderElement> {
-  const stamp = await read($, memberOf(stamps, e))
-  if (stamp === null || !(await read($, isShown))) {
+  const stamp = await read($, memberOf(stamps, { requestId: rowKey(e.requestId) }))
+  if (stamp === null || isLaterPart(e.requestId) || !(await read($, isShown))) {
     return drawn
   }
   const { time, dated } = labelOf(stamp, await read($, clock))
@@ -180,9 +192,9 @@ export const register: Register = (on, options) => {
         stamp = isPrompt(e) || isNew(before, at, now) ? { at, previous: before } : null
         return stamp === null ? before : Math.max(before ?? at, at)
       })
-      // The row's id is the requestId it is drawn with.
+      // The row's id is the requestId it is drawn with (see rowKey).
       if (stamp !== null) {
-        await update($, memberOf(stamps, { requestId: e.uuid }), () => stamp)
+        await update($, memberOf(stamps, { requestId: rowKey(e.uuid) }), () => stamp)
       }
     }
 
